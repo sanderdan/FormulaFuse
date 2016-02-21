@@ -1,0 +1,53 @@
+<DockPanel  ux:Class="NewsView">
+  <Font File="Assets\fonts\BebasNeue.otf" ux:Global="BigFont" />
+        <JavaScript>
+            var Observable = require("FuseJS/Observable");
+
+            var data = Observable();
+
+            fetch('http://rss2json.com/api.json?rss_url=http://www.eurosport.com/formula-1/rss.xml')
+            .then(function(response) { return response.json(); })
+            .then(function(responseObject) {
+              data.value = responseObject;
+            });
+
+            module.exports = {
+                dataSource: data
+            };
+        </JavaScript>
+
+        <StatusBarBackground Dock="Top" />
+        <BottomFrameBackground Dock="Bottom" />
+
+        <StackPanel Dock="Top" Background="#323232" >
+            <Text FontSize="28" Alignment="VerticalCenter"
+                TextColor="#ffffff"
+                TextAlignment="Center" Padding="2"
+                Value="NEWS" />
+            <Rectangle Height="1" Margin="0,3,0,0" Fill="#323232" />
+        </StackPanel>
+
+        <Text ux:Class="Header" Margin="10,10,10,5" TextWrapping="Wrap" FontSize="22" />
+        <Image ux:Class="ArticleImage" Margin="10,10,10,5"/>
+        <Text ux:Class="Article" Margin="10,0,10,0" TextWrapping="Wrap" FontSize="13" />
+        <Text ux:Class="PublishedDate" Margin="10,0,10,0" FontSize="13" TextColor="#999" />
+
+        <ScrollView ClipToBounds="true">
+            <StackPanel Alignment="Top">
+                <Panel Height="7" />
+                <Each Items="{dataSource.items}">
+                    <Header Font="BigFont" Value="{title}" />
+                    <ArticleImage Url="{enclosure.link}" Height="100" StretchMode="UniformToFill">
+                      <WhilePressed>
+                        <Scale Duration=".15" Factor="0.9" />
+                      </WhilePressed>
+                    </ArticleImage>
+                    <Article Value="{content}" />
+                    <PublishedDate Value="{pubDate}" />
+                    <Rectangle Height="1" Margin="10,3,10,3" Fill="#323232" />
+                </Each>
+            </StackPanel>
+        </ScrollView>
+
+
+</DockPanel>

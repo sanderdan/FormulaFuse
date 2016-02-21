@@ -1,0 +1,58 @@
+<DockPanel ux:Class="ScheduleView">
+		<JavaScript>
+			var Observable = require("FuseJS/Observable");
+
+			var races = Observable();
+			var errorMessage = Observable();
+
+			fetch("http://ergast.com/api/f1/2016.json")
+				.then(function(result) {
+					if (result.status !== 200) {
+						debug_log("Something went wrong, status code: " + result.status);
+						errorMessage.value = "Oh noes! :(";
+						return;
+					}
+
+					//throw "Some error";
+
+					return result.json();
+				}).then(function(responseObject) {
+					races.value = responseObject;
+				}).catch(function(error) {
+					debug_log("Fetch error " + error);
+					errorMessage.value = "Oh noes! :(";
+				});
+
+			module.exports = {
+				races: races,
+				errorMessage: errorMessage,
+			};
+		</JavaScript>
+
+		<StatusBarBackground DockPanel.Dock="Top" />
+
+		<Text TextColor="#a94442" Value="{errorMessage}" Alignment="Center" />
+
+    <StackPanel Dock="Top">
+        <Text FontSize="28" Alignment="VerticalCenter"
+            TextAlignment="Center" Padding="2"
+            Value="SCHEDULE" />
+        <Rectangle Height="1" Margin="0,3,0,0" Fill="#333c48" />
+    </StackPanel>
+		<ScrollView ClipToBounds="true">
+			<StackPanel>
+				<Each Items="{races.MRData.RaceTable.Races}">
+					<StackPanel  Orientation="Horizontal">
+						<Text FontSize="12" Value="{round}" TextWrapping="Wrap" Alignment="CenterLeft" Margin="10" />
+            <Text FontSize="12" Value="{raceName}" TextWrapping="Wrap" Alignment="Center" Margin="10" />
+            <Text FontSize="12" Value="{Circuit.Location.locality}" TextWrapping="Wrap" Alignment="CenterRight" Margin="10" />
+					</StackPanel>
+          <StackPanel  Orientation="Horizontal">
+						<Text FontSize="12" Value="{Circuit.circuitName}" TextWrapping="Wrap" Alignment="CenterLeft" Margin="10" />
+            <Text FontSize="12" Value="{date}" TextWrapping="Wrap" Alignment="CenterLeft" Margin="10" />
+					</StackPanel>
+          <Rectangle Height="1" Margin="10,3,10,3" Fill="#323232" />
+				</Each>
+			</StackPanel>
+		</ScrollView>
+	</DockPanel>
