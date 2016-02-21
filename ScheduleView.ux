@@ -29,29 +29,30 @@
 			};
 		</JavaScript>
 
-		<StatusBarBackground DockPanel.Dock="Top" />
 
 		<Text TextColor="#a94442" Value="{errorMessage}" Alignment="Center" />
 
-    <StackPanel Dock="Top">
-        <Text FontSize="28" Alignment="VerticalCenter"
-            TextAlignment="Center" Padding="2"
+    <StackPanel Dock="Top" Background="#323232" >
+        <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
+            TextColor="#ffffff"
+            TextAlignment="Center" Padding="5"
             Value="SCHEDULE" />
-        <Rectangle Height="1" Margin="0,3,0,0" Fill="#333c48" />
+        <Rectangle Height="1" Fill="#323232" />
     </StackPanel>
 		<ScrollView ClipToBounds="true">
 			<StackPanel>
 				<Each Items="{races.MRData.RaceTable.Races}">
-					<StackPanel  Orientation="Horizontal">
-						<Text FontSize="12" Value="{round}" TextWrapping="Wrap" Alignment="CenterLeft" Margin="10" />
-            <Text FontSize="12" Value="{raceName}" TextWrapping="Wrap" Alignment="Center" Margin="10" />
-            <Text FontSize="12" Value="{Circuit.Location.locality}" TextWrapping="Wrap" Alignment="CenterRight" Margin="10" />
-					</StackPanel>
-          <StackPanel  Orientation="Horizontal">
-						<Text FontSize="12" Value="{Circuit.circuitName}" TextWrapping="Wrap" Alignment="CenterLeft" Margin="10" />
-            <Text FontSize="12" Value="{date}" TextWrapping="Wrap" Alignment="CenterLeft" Margin="10" />
-					</StackPanel>
-          <Rectangle Height="1" Margin="10,3,10,3" Fill="#323232" />
+          <StackPanel Background="#ffffff" Margin="10,10,10,10" Orientation="Vertical" >
+              <Text FontSize="22" Value="{raceName}" TextWrapping="Wrap" Margin="10,10,10,5" />
+            <StackPanel Orientation="Horizontal">
+              <Text FontSize="12" Value="{Circuit.Location.locality}" TextWrapping="Wrap"  Margin="10,0,10,5" />
+              <Text TextColor="#999" FontSize="12" Value="|" />
+              <Text FontSize="12" Value="{Circuit.circuitName}" TextWrapping="Wrap" Margin="10,0,10,5" />
+              <Text TextColor="#999" FontSize="12" Value="|" />
+              <Text FontSize="12" Value="{date}" TextWrapping="Wrap" Margin="10,0,10,5" />
+            </StackPanel>
+            <Image Height="150" StretchMode="UniformToFill" File="Assets/Images/australia.png" />
+          </StackPanel>
 				</Each>
 			</StackPanel>
 		</ScrollView>

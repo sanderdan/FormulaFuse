@@ -16,31 +16,27 @@
             };
         </JavaScript>
 
-        <StatusBarBackground Dock="Top" />
-        <BottomFrameBackground Dock="Bottom" />
-
         <StackPanel Dock="Top" Background="#323232" >
-            <Text FontSize="28" Alignment="VerticalCenter"
+            <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
                 TextColor="#ffffff"
-                TextAlignment="Center" Padding="2"
+                TextAlignment="Center" Padding="5"
                 Value="NEWS" />
-            <Rectangle Height="1" Margin="0,3,0,0" Fill="#323232" />
         </StackPanel>
 
-        <Text ux:Class="Header" Margin="10,10,10,5" TextWrapping="Wrap" FontSize="22" />
-        <Image ux:Class="ArticleImage" Margin="10,10,10,5"/>
+        <Text Font="BigFont" ux:Class="Header" Margin="10,10,10,0" TextWrapping="Wrap" FontSize="22" />
+        <Image ux:Class="ArticleImage" Margin="10,0,10,5"/>
         <Text ux:Class="Article" Margin="10,0,10,0" TextWrapping="Wrap" FontSize="13" />
-        <Text ux:Class="PublishedDate" Margin="10,0,10,0" FontSize="13" TextColor="#999" />
+        <Text ux:Class="PublishedDate" Margin="10,0,10,0" FontSize="10" TextColor="#999" />
 
         <ScrollView ClipToBounds="true">
+        <ScrollingAnimation>
+
+        </ScrollingAnimation>
             <StackPanel Alignment="Top">
                 <Panel Height="7" />
                 <Each Items="{dataSource.items}">
-                    <Header Font="BigFont" Value="{title}" />
+                    <Header Value="{title}" />
                     <ArticleImage Url="{enclosure.link}" Height="100" StretchMode="UniformToFill">
-                      <WhilePressed>
-                        <Scale Duration=".15" Factor="0.9" />
-                      </WhilePressed>
                     </ArticleImage>
                     <Article Value="{content}" />
                     <PublishedDate Value="{pubDate}" />

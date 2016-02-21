@@ -1,44 +1,44 @@
 <App Background="#333">
     <DockPanel>
-        <iOS.StatusBarConfig Style="Light" />
-        <StatusBarBackground Dock="Top"/>
-        <BottomBarBackground Dock="Bottom"/>
         <PageControl ux:Name="pages">
             <Page ux:Name="page1" Background="#ffffff">
               <NewsView  />
                 <ActivatingAnimation>
+                    <Change panelTab0.Background="#CFCCC9" />
                     <Scale Target="tabBarImage1" Factor="1.2" />
                 </ActivatingAnimation>
             </Page>
-            <Page ux:Name="page2" Background="#3498db">
-            <ScheduleView />
+            <Page ux:Name="page2" Background="#CFCCC9">
+              <ScheduleView />
                 <ActivatingAnimation>
+                  <Change panelTab1.Background="#CFCCC9" />
                     <Scale Target="tabBarImage2" Factor="1.2" />
                 </ActivatingAnimation>
             </Page>
             <Page ux:Name="page3" Background="#aa3377">
                 <ActivatingAnimation>
+                    <Change panelTab2.Background="#CFCCC9" />
                     <Scale Target="tabBarImage3" Factor="1.2" />
                 </ActivatingAnimation>
             </Page>
         </PageControl>
-        <Grid ColumnData="1*,1*,1*" Height="60" Dock="Bottom" Background="#ffffff">
+        <Grid ColumnData="1*,1*,1*" Height="40" Dock="Bottom" Background="#ffffff">
             <Style>
                 <Image Padding="7" />
             </Style>
-            <Panel>
+            <Panel ux:Name="panelTab0">
                 <Image ux:Name="tabBarImage1" File="Assets/Icons/news.png" />
                 <Clicked>
                     <Set pages.Active="page1" />
                 </Clicked>
             </Panel>
-            <Panel>
+            <Panel ux:Name="panelTab1">
                 <Image ux:Name="tabBarImage2" File="Assets/Icons/schedule.png" />
                 <Clicked>
                     <Set pages.Active="page2" />
                 </Clicked>
             </Panel>
-            <Panel>
+            <Panel ux:Name="panelTab2">
                 <Image ux:Name="tabBarImage3" File="Assets/Icons/standings.png" />
                 <Clicked>
                     <Set pages.Active="page3" />
