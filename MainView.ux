@@ -1,27 +1,21 @@
 <App Background="#333">
+  <JavaScript File="scripts/Colors.js" ux:Global="Colors" />
+  <JavaScript File="scripts/Main.js" />
+  <StatusBarBackground Dock="Top"/>
     <DockPanel>
         <PageControl ux:Name="pages">
-            <Page ux:Name="page1" Background="#ffffff">
+            <Page ux:Name="page1">
               <NewsView  />
-                <ActivatingAnimation>
-                    <Change panelTab0.Background="#CFCCC9" />
-                    <Scale Target="tabBarImage1" Factor="1.2" />
-                </ActivatingAnimation>
+
             </Page>
-            <Page ux:Name="page2" Background="#CFCCC9">
+            <Page ux:Name="page2">
               <ScheduleView />
-                <ActivatingAnimation>
-                  <Change panelTab1.Background="#CFCCC9" />
-                    <Scale Target="tabBarImage2" Factor="1.2" />
-                </ActivatingAnimation>
             </Page>
-            <Page ux:Name="page3" Background="#aa3377">
-                <ActivatingAnimation>
-                    <Change panelTab2.Background="#CFCCC9" />
-                    <Scale Target="tabBarImage3" Factor="1.2" />
-                </ActivatingAnimation>
+            <Page ux:Name="page3">
+              <StandingsView />
             </Page>
         </PageControl>
+
         <Grid ColumnData="1*,1*,1*" Height="40" Dock="Bottom" Background="#ffffff">
             <Style>
                 <Image Padding="7" />

@@ -11,6 +11,7 @@
         "Fuse.Effects",
         "Fuse.Elements",
         "Fuse.Entities",
+        "Fuse.Launcher",
         "Fuse.Gestures",
         "Fuse.Navigation",
         "Fuse.Shapes",

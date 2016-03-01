@@ -1,57 +1,27 @@
 <DockPanel ux:Class="ScheduleView">
-		<JavaScript>
-			var Observable = require("FuseJS/Observable");
-
-			var races = Observable();
-			var errorMessage = Observable();
-
-			fetch("http://ergast.com/api/f1/2016.json")
-				.then(function(result) {
-					if (result.status !== 200) {
-						debug_log("Something went wrong, status code: " + result.status);
-						errorMessage.value = "Oh noes! :(";
-						return;
-					}
-
-					//throw "Some error";
-
-					return result.json();
-				}).then(function(responseObject) {
-					races.value = responseObject;
-				}).catch(function(error) {
-					debug_log("Fetch error " + error);
-					errorMessage.value = "Oh noes! :(";
-				});
-
-			module.exports = {
-				races: races,
-				errorMessage: errorMessage,
-			};
-		</JavaScript>
-
-
+		<JavaScript File="scripts/Schedule.js" />
 		<Text TextColor="#a94442" Value="{errorMessage}" Alignment="Center" />
+		<Text FontSize="12" TextColor="{Colors.white}" Margin="10,0,10,5" ux:Class="InfoText" />
 
     <StackPanel Dock="Top" Background="#323232" >
         <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
             TextColor="#ffffff"
-            TextAlignment="Center" Padding="5"
+            TextAlignment="Center" Margin="5"
             Value="SCHEDULE" />
         <Rectangle Height="1" Fill="#323232" />
     </StackPanel>
+
 		<ScrollView ClipToBounds="true">
 			<StackPanel>
 				<Each Items="{races.MRData.RaceTable.Races}">
-          <StackPanel Background="#ffffff" Margin="10,10,10,10" Orientation="Vertical" >
-              <Text FontSize="22" Value="{raceName}" TextWrapping="Wrap" Margin="10,10,10,5" />
-            <StackPanel Orientation="Horizontal">
-              <Text FontSize="12" Value="{Circuit.Location.locality}" TextWrapping="Wrap"  Margin="10,0,10,5" />
-              <Text TextColor="#999" FontSize="12" Value="|" />
-              <Text FontSize="12" Value="{Circuit.circuitName}" TextWrapping="Wrap" Margin="10,0,10,5" />
-              <Text TextColor="#999" FontSize="12" Value="|" />
-              <Text FontSize="12" Value="{date}" TextWrapping="Wrap" Margin="10,0,10,5" />
-            </StackPanel>
-            <Image Height="150" StretchMode="UniformToFill" File="Assets/Images/australia.png" />
+          <StackPanel  Background="{Colors.gray}" Margin="10,5,10,5" Orientation="Vertical" >
+              <InfoText TextAlignment="Center" FontSize="22" Value="{raceName}"  />
+            <Grid ColumnData="1*,2*,1*">
+              <InfoText Alignment="Left" Value="{Circuit.Location.locality}"  />
+              <InfoText Alignment="Center" Value="{Circuit.circuitName}" />
+              <InfoText Alignment="Right" Value="{date}"  />
+            </Grid>
+						<DropShadow Angle="130" />
           </StackPanel>
 				</Each>
 			</StackPanel>
