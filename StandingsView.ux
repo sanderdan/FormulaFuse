@@ -3,26 +3,40 @@
 		<Text TextColor="#a94442" Value="{errorMessage}" Alignment="Center" />
     <Text FontSize="12" TextColor="{Colors.green}" Margin="10,0,10,5" ux:Class="BoardText" />
 
-    <StackPanel Dock="Top" Background="#323232" >
-        <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
-            TextColor="#ffffff"
-            TextAlignment="Center" Margin="5"
-            Value="STANDINGS" />
-        <Rectangle Height="1" Fill="#323232" />
-				<DropShadow Color="{Colors.black}" Size="5" Distance="1" Spread="0.3"/>
-    </StackPanel>
+		<Panel Dock="Top" Background="#323232" >
+		<Rectangle>
+				<Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
+						TextColor="#ffffff"
+						TextAlignment="Center" Margin="5"
+						Value="STANDINGS" />
+
+				<LinearGradient>
+					 <GradientStop Offset="0" Color="#323232"/>
+					 <GradientStop Offset="1" Color="#101010"/>
+				</LinearGradient>
+		</Rectangle>
+		<DropShadow Color="{Colors.black}" Size="5" Distance="1" Spread="0.3"/>
+		</Panel>
 
 		<ScrollView ClipToBounds="true">
     <StackPanel ItemSpacing="10"  Background="{Colors.gray}" Margin="10,5,10,5" Orientation="Vertical" >
 				<Each Items="{drivers.DriverStandings}">
           <StackPanel ItemSpacing="5" Orientation="Horizontal">
-            <Rectangle Fill="{Colors.black}">
+            <Rectangle>
               <BoardText TextAlignment="Center" FontSize="22" Value="{position}"  />
               <DropShadow Angle="90" />
+							<LinearGradient>
+								 <GradientStop Offset="0" Color="#323232"/>
+								 <GradientStop Offset="1" Color="#101010"/>
+							</LinearGradient>
             </Rectangle>
-            <Rectangle  Fill="{Colors.black}">
+            <Rectangle>
               <BoardText TextAlignment="Center" FontSize="22" Value="{Driver.familyName}"  />
               <DropShadow Angle="90" />
+							<LinearGradient>
+								 <GradientStop Offset="0" Color="#323232"/>
+								 <GradientStop Offset="1" Color="#101010"/>
+							</LinearGradient>
             </Rectangle>
           </StackPanel>
 
