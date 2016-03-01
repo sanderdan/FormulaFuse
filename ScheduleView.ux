@@ -1,4 +1,4 @@
-<DockPanel ux:Class="ScheduleView">
+<DockPanel ClipToBounds="true" ux:Class="ScheduleView">
 		<JavaScript File="scripts/Schedule.js" />
 		<Text TextColor="#a94442" Value="{errorMessage}" Alignment="Center" />
 		<Text FontSize="12" TextColor="{Colors.white}" Margin="10,0,10,5" ux:Class="InfoText" />
@@ -9,6 +9,7 @@
             TextAlignment="Center" Margin="5"
             Value="SCHEDULE" />
         <Rectangle Height="1" Fill="#323232" />
+				<DropShadow Color="{Colors.black}" Size="5" Distance="1" Spread="0.3"/>
     </StackPanel>
 
 		<ScrollView ClipToBounds="true">

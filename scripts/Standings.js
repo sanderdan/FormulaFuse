@@ -13,7 +13,6 @@ fetch("http://ergast.com/api/f1/current/driverStandings.json")
     return result.json();
   }).then(function(responseObject) {
     drivers.value = responseObject.MRData.StandingsTable.StandingsLists[0];
-    console.log(drivers.value);
   }).catch(function(error) {
     debug_log("Fetch error " + error);
     errorMessage.value = "Oh noes! :(";

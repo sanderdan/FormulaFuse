@@ -1,38 +1,53 @@
-<DockPanel  ux:Class="NewsView">
+<DockPanel ClipToBounds="true"  ux:Class="NewsView">
     <Font File="Assets\fonts\BebasNeue.otf" ux:Global="BigFont" />
-    <Text TextColor="{Colors.white}" Font="BigFont" ux:Class="Header" Margin="10,10,10,0" TextWrapping="Wrap" FontSize="22" />
-    <Image ux:Class="ArticleImage" Margin="10,0,10,5"/>
-    <Text TextColor="{Colors.white}" ux:Class="Article" Margin="10,0,10,0" TextWrapping="Wrap" FontSize="13" />
-    <Text ux:Class="PublishedDate" Margin="10,0,10,0" FontSize="10" TextColor="#999" />
+    <Text TextColor="{Colors.white}" Font="BigFont" ux:Class="Header"
+    Margin="10,0,10,0" TextWrapping="Wrap" FontSize="22"/>
+
+    <Image ux:Class="ArticleImage"/>
+    <Text TextColor="{Colors.white}" ux:Class="Article" Margin="10,10,10,0" TextWrapping="Wrap" FontSize="13" />
+    <Text ux:Class="PublishedDate" Margin="10,5,10,0" FontSize="10" TextColor="#999" />
     <JavaScript File="scripts/News.js" />
 
 
-        <StackPanel Dock="Top" Background="#323232" >
+        <StackPanel ClipToBounds="true" Dock="Top" Background="#323232" >
             <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
                 TextColor="#ffffff"
                 TextAlignment="Center" Margin="5"
                 Value="NEWS" />
                 <StatusBarBackground Dock="Top"/>
+                <DropShadow Color="{Colors.black}" Size="5" Distance="1" Spread="0.3"/>
         </StackPanel>
 
         <ScrollView Background="{Colors.gray}" ClipToBounds="true">
-          <ScrollingAnimation>
 
-          </ScrollingAnimation>
-          <StackPanel ItemSpacing="5" Alignment="Top">
-              <Each Items="{news.items}">
-              <Rectangle Margin="10,0,10,0" Fill="{Colors.white}" Height="3" />
-                <Header Value="{title}" />
-                  <ArticleImage Url="{enclosure.link}" Height="100" StretchMode="UniformToFill">
-                    <Clicked>
-                      <LaunchUri Uri="{link}" />
-                    </Clicked>
-                  </ArticleImage>
-                  <Article Value="{content}" />
-                <PublishedDate Value="{pubDate}" />
-                <Rectangle Height="1" Margin="10,3,10,3" Fill="#323232" />
-              </Each>
+          <StackPanel  Alignment="Top">
+            <Each Items="{news.items}">
+              <Panel>
+              <Rectangle Alignment="Top" Fill="#fff" Height="3" />
+              <Header Alignment="BottomLeft" Value="{title}" >
+              <DropShadow Color="{Colors.black}" Size="6" Angle="130" Distance="2" Spread="0.2"/>
+              </Header>
+                <ArticleImage Url="{enclosure.link}" Height="150" StretchMode="UniformToFill">
+                  <Rectangle Opacity="0.2">
+                    <LinearGradient StartPoint="1,0" EndPoint="1,1">
+                      <GradientStop Offset="0" Color="#B73070" />
+                      <GradientStop Offset="1" Color="#000000" />
+                    </LinearGradient>
+                  </Rectangle>
+                <Clicked>
+                <LaunchUri Uri="{link}" />
+                </Clicked>
+                <Blur ux:Name="blur" Radius="0.5" />
+                </ArticleImage>
+              </Panel>
+
+            <Article Value="{content}" />
+            <PublishedDate Value="{pubDate}" />
+            <Rectangle Height="1" Margin="10,3,10,3" Fill="#323232" />
+
+            </Each>
           </StackPanel>
+
         </ScrollView>
 
 
