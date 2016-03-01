@@ -1,8 +1,8 @@
 <App Background="#333">
   <JavaScript File="scripts/Colors.js" ux:Global="Colors" />
   <JavaScript File="scripts/Main.js" />
-  <StatusBarBackground Dock="Top"/>
     <DockPanel>
+      <StatusBarBackground Dock="Top"/>
         <PageControl ux:Name="pages">
             <Page ux:Name="page1">
               <WhileActive Threshold="0.5">

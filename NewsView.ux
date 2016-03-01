@@ -3,7 +3,7 @@
     <Text TextColor="{Colors.white}" Font="BigFont" ux:Class="Header"
     Margin="5,0,10,0" TextWrapping="Wrap" FontSize="22"/>
 
-    <Image ux:Class="ArticleImage"/>
+    <Image ux:Class="ArticleImage" StretchMode="UniformToFill"/>
     <Text TextColor="{Colors.white}" ux:Class="Article" Margin="5,10,10,0" TextWrapping="Wrap" FontSize="13" />
     <Text ux:Class="PublishedDate" Margin="5,5,10,0" FontSize="10" TextColor="#999" />
     <JavaScript File="scripts/News.js" />
@@ -33,7 +33,7 @@
               <Header Alignment="BottomLeft" Value="{title}" >
               <DropShadow Color="{Colors.black}" Size="6" Angle="130" Distance="2" Spread="0.2"/>
               </Header>
-                <ArticleImage Url="{enclosure.link}" Height="150" StretchMode="UniformToFill">
+                <ArticleImage Url="{enclosure.link}" Height="150" >
                   <Rectangle Opacity="0.2">
                     <LinearGradient StartPoint="1,0" EndPoint="1,1">
                       <GradientStop Offset="0" Color="#B73070" />

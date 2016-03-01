@@ -13,6 +13,7 @@ fetch("http://ergast.com/api/f1/2016.json")
     return result.json();
   }).then(function(responseObject) {
     races.value = responseObject;
+    console.log("schedule loaded");
   }).catch(function(error) {
     debug_log("Fetch error " + error);
     errorMessage.value = "Oh noes! :(";
