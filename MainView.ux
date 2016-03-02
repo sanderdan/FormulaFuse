@@ -2,6 +2,7 @@
   <JavaScript File="scripts/Colors.js" ux:Global="Colors" />
   <JavaScript File="scripts/Main.js" />
   <Font File="Assets/fonts/BebasNeue.otf" ux:Global="BigFont" />
+  <Font File="Assets/fonts/NimbusSanL-Bol.otf" ux:Global="MediumFont" />
     <DockPanel>
       <StatusBarBackground Dock="Top"/>
         <PageControl ux:Name="pages">

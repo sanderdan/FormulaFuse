@@ -1,35 +1,50 @@
 <DockPanel ClipToBounds="true" ux:Class="ScheduleView">
 		<JavaScript File="scripts/Schedule.js" />
-		<Text TextColor="#a94442" Value="{errorMessage}" Alignment="Center" />
-		<Text FontSize="12" TextColor="{Colors.white}" Margin="10,0,10,5" ux:Class="InfoText" />
+		<Text ux:Class="InfoText" FontSize="12" TextColor="{Colors.white}" Margin="0,5,0,5" />
 
-    <Panel Dock="Top" Background="#323232" >
+    <Panel Dock="Top" Background="{Colors.primary}" >
 		<Rectangle>
         <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
             TextColor="#ffffff"
             TextAlignment="Center" Margin="5"
             Value="SCHEDULE" />
-
-				<LinearGradient>
-					 <GradientStop Offset="0" Color="#323232"/>
-					 <GradientStop Offset="1" Color="#101010"/>
-				</LinearGradient>
 		</Rectangle>
-		<DropShadow Color="{Colors.black}" Size="5" Distance="1" Spread="0.3"/>
+		<DropShadow Color="{Colors.shadowBlack}" Size="5" Distance="1" Spread="0.3"/>
     </Panel>
 
-		<ScrollView ClipToBounds="true">
-			<StackPanel>
+		<ScrollView Background="{Colors.accent}" ClipToBounds="true">
+			<StackPanel ItemSpacing="10" >
 				<Each Items="{races.MRData.RaceTable.Races}">
-          <StackPanel  Background="{Colors.gray}" Margin="10,5,10,5" Orientation="Vertical" >
-              <InfoText TextAlignment="Center" FontSize="22" Value="{raceName}"  />
-            <Grid ColumnData="1*,2*,1*">
-              <InfoText Alignment="Left" Value="{Circuit.Location.locality}"  />
-              <InfoText Alignment="Center" Value="{Circuit.circuitName}" />
-              <InfoText Alignment="Right" Value="{date}"  />
-            </Grid>
-						<DropShadow Angle="130" />
-          </StackPanel>
+				<Rectangle Margin="20,0,20,0" Fill="{Colors.lightPrimary}" CornerRadius="5" >
+				<Panel Padding="10" >
+						<Circle Alignment="Right" Padding="10" Fill="{Colors.secondaryText}" Height="30" Width="30">
+							<Image File="Assets/icons/arrow.png" />
+							<Stroke Color="#ffffff" Width="2" />
+							<WhilePressed>
+							<Change Target="buttonShadow.Spread" Value="0.1" Duration=".15" />
+							</WhilePressed>
+							<DropShadow Spread="0.3" Distance="1" ux:Name="buttonShadow" Angle="130" Color="{Colors.shadowBlack}" />
+						</Circle>
+	          <StackPanel  Orientation="Vertical" >
+	              <InfoText Font="MediumFont" FontSize="22" Value="{raceName}"  />
+	            <StackPanel Orientation="Horizontal">
+	              <InfoText Value="{Circuit.Location.country}"  />
+								<InfoText Value=" / " />
+								<InfoText Value="{Circuit.Location.locality}"  />
+	            </StackPanel>
+							<StackPanel Orientation="Horizontal">
+	              <InfoText Value="{Circuit.circuitName}"  />
+								<InfoText Value=" / " />
+								<InfoText Value="{date}"  />
+								<InfoText Value=" - " />
+								<InfoText Value="{time}"  />
+	            </StackPanel>
+	          </StackPanel>
+
+					</Panel>
+					<DropShadow Color="{Colors.shadowBlack}" Angle="130" />
+					<Stroke Brush="#ffffff" Width="3"  />
+					</Rectangle>
 				</Each>
 			</StackPanel>
 		</ScrollView>

@@ -1,31 +1,27 @@
 <DockPanel ClipToBounds="true"  ux:Class="NewsView">
-  <Text ux:Class="Header" TextColor="{Colors.white}" Font="BigFont"
+  <Text ux:Class="Header" TextColor="{Colors.primaryText}" Font="BigFont"
   Margin="5,0,10,0" TextWrapping="Wrap" FontSize="30">
-    <DropShadow Color="{Colors.black}" Size="6" Angle="130" Distance="2" Spread="0.2"/>
+    <DropShadow Color="{Colors.shadowBlack}" Size="6" Angle="130" Distance="2" Spread="0.2"/>
   </Text>
   <Image ux:Class="ArticleImage" StretchMode="UniformToFill"/>
-  <Text ux:Class="Article" TextColor="{Colors.white}" Margin="5,5,10,0" TextWrapping="Wrap" FontSize="13" />
-  <Text ux:Class="PublishedDate" Margin="5,5,10,5" FontSize="10" TextColor="{Colors.lightGray}" />
+  <Text ux:Class="Article" TextColor="{Colors.primaryText}" Margin="5,5,10,0" TextWrapping="Wrap" FontSize="13" />
+  <Text ux:Class="PublishedDate" Margin="5,5,10,5" FontSize="10" TextColor="{Colors.secondaryText}" />
   <JavaScript File="scripts/News.js" />
 
 
-  <Panel ClipToBounds="true" Dock="Top" Background="{Colors.gray}" >
+  <Panel ClipToBounds="true" Dock="Top" Background="{Colors.primary}" >
     <Rectangle>
       <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
       TextColor="#ffffff"
       TextAlignment="Center" Margin="5"
       Value="NEWS" />
-      <LinearGradient>
-        <GradientStop Offset="0" Color="{Colors.gray}"/>
-        <GradientStop Offset="1" Color="{Colors.black}"/>
-      </LinearGradient>
     </Rectangle>
-    <DropShadow Color="{Colors.black}" Size="5" Distance="1" Spread="0.3"/>
+    <DropShadow Color="{Colors.shadowBlack}" Size="5" Distance="1" Spread="0.3"/>
   </Panel>
 
-  <ScrollView Background="{Colors.gray}" ClipToBounds="true">
+  <ScrollView Background="{Colors.accent}" ClipToBounds="true">
     <Rectangle>
-      <StackPanel  Alignment="Top">
+      <StackPanel Background="{Colors.lightPrimary}"  Alignment="Top">
         <Each Items="{news.items}">
           <Panel>
             <Panel Alignment="BottomLeft">
@@ -35,8 +31,8 @@
             <ArticleImage Url="{enclosure.link}" Height="150" >
               <Rectangle Opacity="0.2">
                 <LinearGradient StartPoint="1,0" EndPoint="1,1">
-                  <GradientStop Offset="0" Color="{Colors.pink}" />
-                  <GradientStop Offset="1" Color="{Colors.black}" />
+                  <GradientStop Offset="0" Color="{Colors.accent}" />
+                  <GradientStop Offset="1" Color="{Colors.primary}" />
                 </LinearGradient>
               </Rectangle>
               <Clicked>
@@ -47,7 +43,7 @@
 
           <Article Value="{content}" />
           <PublishedDate Value="{pubDate}" />
-          <Rectangle Alignment="Top" Fill="{Colors.white}" Height="3" />
+          <Rectangle Alignment="Top" Fill="{Colors.accent}" Height="3" />
         </Each>
       </StackPanel>
       <LinearGradient>
