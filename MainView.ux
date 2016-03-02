@@ -1,4 +1,4 @@
-<App Background="#333">
+<App>
   <JavaScript File="scripts/Colors.js" ux:Global="Colors" />
   <JavaScript File="scripts/Main.js" />
   <Font File="Assets/fonts/BebasNeue.otf" ux:Global="BigFont" />
