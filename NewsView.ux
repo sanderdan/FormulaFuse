@@ -1,5 +1,5 @@
 <DockPanel ClipToBounds="true"  ux:Class="NewsView">
-    <Font File="Assets\fonts\BebasNeue.otf" ux:Global="BigFont" />
+
     <Text TextColor="{Colors.white}" Font="BigFont" ux:Class="Header"
     Margin="5,0,10,0" TextWrapping="Wrap" FontSize="22"/>
 
