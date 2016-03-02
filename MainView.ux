@@ -6,45 +6,14 @@
       <StatusBarBackground Dock="Top"/>
         <PageControl ux:Name="pages">
             <Page ux:Name="page1">
-              <WhileActive Threshold="0.5">
-                <Rotate Degrees="180" Duration="0.3" Target="tabBarImage1"/>
-                <Scale Duration="0.3" Target="tabBarImage1" Factor="1.2" />
-              </WhileActive>
               <NewsView  />
             </Page>
             <Page ux:Name="page2">
-              <WhileActive Threshold="0.5">
-                <Scale Duration="0.3" Target="tabBarImage2" Factor="1.2" />
-              </WhileActive>
               <ScheduleView />
             </Page>
             <Page ux:Name="page3">
-              <WhileActive Threshold="0.5">
-                <Scale Duration="0.3" Target="tabBarImage3" Factor="1.2" />
-              </WhileActive>
               <StandingsView />
             </Page>
         </PageControl>
-
-        <Grid ColumnData="1*,1*,1*" Height="60" Dock="Bottom" Background="#ffffff">
-            <Panel ux:Name="panelTab0">
-                <Image ux:Name="tabBarImage1" Height="100"  File="Assets/Icons/news.png" />
-                <Clicked>
-                    <Set pages.Active="page1" />
-                </Clicked>
-            </Panel>
-            <Panel ux:Name="panelTab1">
-                <Image ux:Name="tabBarImage2" Height="100" File="Assets/Icons/schedule.png" />
-                <Clicked>
-                    <Set pages.Active="page2" />
-                </Clicked>
-            </Panel>
-            <Panel ux:Name="panelTab2">
-                <Image ux:Name="tabBarImage3" Height="100" File="Assets/Icons/standings.png" />
-                <Clicked>
-                    <Set pages.Active="page3" />
-                </Clicked>
-            </Panel>
-        </Grid>
     </DockPanel>
 </App>

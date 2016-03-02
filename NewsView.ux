@@ -1,64 +1,59 @@
 <DockPanel ClipToBounds="true"  ux:Class="NewsView">
+  <Text ux:Class="Header" TextColor="{Colors.white}" Font="BigFont"
+  Margin="5,0,10,0" TextWrapping="Wrap" FontSize="30">
+    <DropShadow Color="{Colors.black}" Size="6" Angle="130" Distance="2" Spread="0.2"/>
+  </Text>
+  <Image ux:Class="ArticleImage" StretchMode="UniformToFill"/>
+  <Text ux:Class="Article" TextColor="{Colors.white}" Margin="5,5,10,0" TextWrapping="Wrap" FontSize="13" />
+  <Text ux:Class="PublishedDate" Margin="5,5,10,5" FontSize="10" TextColor="#999" />
+  <JavaScript File="scripts/News.js" />
 
-    <Text TextColor="{Colors.white}" Font="BigFont" ux:Class="Header"
-    Margin="5,0,10,0" TextWrapping="Wrap" FontSize="22"/>
 
-    <Image ux:Class="ArticleImage" StretchMode="UniformToFill"/>
-    <Text TextColor="{Colors.white}" ux:Class="Article" Margin="5,10,10,0" TextWrapping="Wrap" FontSize="13" />
-    <Text ux:Class="PublishedDate" Margin="5,5,10,0" FontSize="10" TextColor="#999" />
-    <JavaScript File="scripts/News.js" />
+  <Panel ClipToBounds="true" Dock="Top" Background="#323232" >
+    <Rectangle>
+      <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
+      TextColor="#ffffff"
+      TextAlignment="Center" Margin="5"
+      Value="NEWS" />
+      <LinearGradient>
+        <GradientStop Offset="0" Color="#323232"/>
+        <GradientStop Offset="1" Color="#101010"/>
+      </LinearGradient>
+    </Rectangle>
+    <DropShadow Color="{Colors.black}" Size="5" Distance="1" Spread="0.3"/>
+  </Panel>
 
+  <ScrollView Background="{Colors.gray}" ClipToBounds="true">
+    <Rectangle>
+      <StackPanel  Alignment="Top">
+        <Each Items="{news.items}">
+          <Panel>
+            <Panel Alignment="BottomLeft">
+              <Header Value="{title}" />
+            </Panel>
 
-        <Panel ClipToBounds="true" Dock="Top" Background="#323232" >
-          <Rectangle >
-              <Text Font="BigFont" FontSize="28" Alignment="VerticalCenter"
-                  TextColor="#ffffff"
-                  TextAlignment="Center" Margin="5"
-                  Value="NEWS" />
-                  <LinearGradient>
-                     <GradientStop Offset="0" Color="#323232"/>
-                     <GradientStop Offset="1" Color="#101010"/>
-                  </LinearGradient>
-
-          </Rectangle>
-          <DropShadow Color="{Colors.black}" Size="5" Distance="1" Spread="0.3"/>
-        </Panel>
-
-        <ScrollView Background="{Colors.gray}" ClipToBounds="true">
-          <Rectangle>
-          <StackPanel  Alignment="Top">
-            <Each Items="{news.items}">
-              <Panel>
-              <Rectangle Alignment="Top" Fill="#fff" Height="3" />
-              <Header Alignment="BottomLeft" Value="{title}" >
-              <DropShadow Color="{Colors.black}" Size="6" Angle="130" Distance="2" Spread="0.2"/>
-              </Header>
-                <ArticleImage Url="{enclosure.link}" Height="150" >
-                  <Rectangle Opacity="0.2">
-                    <LinearGradient StartPoint="1,0" EndPoint="1,1">
-                      <GradientStop Offset="0" Color="#B73070" />
-                      <GradientStop Offset="1" Color="#000000" />
-                    </LinearGradient>
-                  </Rectangle>
-                <Clicked>
+            <ArticleImage Url="{enclosure.link}" Height="150" >
+              <Rectangle Opacity="0.2">
+                <LinearGradient StartPoint="1,0" EndPoint="1,1">
+                  <GradientStop Offset="0" Color="#B73070" />
+                  <GradientStop Offset="1" Color="#000000" />
+                </LinearGradient>
+              </Rectangle>
+              <Clicked>
                 <LaunchUri Uri="{link}" />
-                </Clicked>
-                <Blur ux:Name="blur" Radius="0.5" />
-                </ArticleImage>
-              </Panel>
+              </Clicked>
+            </ArticleImage>
+          </Panel>
 
-            <Article Value="{content}" />
-            <PublishedDate Value="{pubDate}" />
-            <Rectangle Height="1" Margin="10,3,10,3" Fill="#323232" />
-
-            </Each>
-          </StackPanel>
-            <LinearGradient>
-               <GradientStop Offset="0" Color="#323232"/>
-               <GradientStop Offset="1" Color="#101010"/>
-            </LinearGradient>
-          </Rectangle>
-        </ScrollView>
-
-
+          <Article Value="{content}" />
+          <PublishedDate Value="{pubDate}" />
+          <Rectangle Alignment="Top" Fill="#fff" Height="3" />
+        </Each>
+      </StackPanel>
+      <LinearGradient>
+        <GradientStop Offset="0" Color="#323232"/>
+        <GradientStop Offset="1" Color="#101010"/>
+      </LinearGradient>
+    </Rectangle>
+  </ScrollView>
 </DockPanel>
