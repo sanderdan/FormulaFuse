@@ -12,7 +12,15 @@
 		<DropShadow Color="{Colors.shadowBlack}" Size="5" Distance="1" Spread="0.3"/>
     </Panel>
 
-		<ScrollView Background="{Colors.accent}" ClipToBounds="true">
+		<Image Y="0" ux:Name="backgroundImage" Layer="Background" Height="1000"
+		StretchMode="UniformToFill" File="Assets/images/ferrari-957630.jpg">
+			<Blur Radius="3" />
+		</Image>
+
+		<ScrollView ClipToBounds="true">
+			<ScrollingAnimation From="0" To="3000" >
+				<Change backgroundImage.Y="-100" />
+			</ScrollingAnimation>
 			<StackPanel ItemSpacing="10" >
 				<Each Items="{races.MRData.RaceTable.Races}">
 				<Rectangle Margin="20,0,20,0" Fill="{Colors.lightPrimary}" CornerRadius="5" >
