@@ -12,47 +12,50 @@
 		<DropShadow Color="{Colors.shadowBlack}" Size="5" Distance="1" Spread="0.3"/>
     </Panel>
 
-		<Image Y="0" ux:Name="backgroundImage" Layer="Background" Height="1000"
+		<Image Y="0" Margin="-10" ux:Name="backgroundImage" Layer="Background" Height="1000"
 		StretchMode="UniformToFill" File="Assets/images/ferrari-957630.jpg">
-			<Blur Radius="3" />
+			<Blur ux:Name="blurren" Radius="0" />
+			<Rectangle Opacity="0.4">
+				<LinearGradient StartPoint="1,0" EndPoint="1,1">
+					<GradientStop Offset="0" Color="{Colors.accent}" />
+					<GradientStop Offset="1" Color="{Colors.primary}" />
+				</LinearGradient>
+			</Rectangle>
 		</Image>
 
 		<ScrollView ClipToBounds="true">
 			<ScrollingAnimation From="0" To="3000" >
 				<Change backgroundImage.Y="-100" />
+				<Change blurren.Radius="4" />
 			</ScrollingAnimation>
 			<StackPanel ItemSpacing="10" >
 				<Each Items="{races.MRData.RaceTable.Races}">
-				<Rectangle Margin="20,0,20,0" Fill="{Colors.lightPrimary}" CornerRadius="5" >
-				<Panel Padding="10" >
-						<Circle Alignment="Right" Padding="10" Fill="{Colors.secondaryText}" Height="30" Width="30">
-							<Image File="Assets/icons/arrow.png" />
-							<Stroke Color="#ffffff" Width="2" />
-							<WhilePressed>
-							<Change Target="buttonShadow.Spread" Value="0.1" Duration=".15" />
-							</WhilePressed>
-							<DropShadow Spread="0.3" Distance="1" ux:Name="buttonShadow" Angle="130" Color="{Colors.shadowBlack}" />
-						</Circle>
-	          <StackPanel  Orientation="Vertical" >
-	              <InfoText Font="MediumFont" FontSize="22" Value="{raceName}"  />
-	            <StackPanel Orientation="Horizontal">
-	              <InfoText Value="{Circuit.Location.country}"  />
-								<InfoText Value=" / " />
-								<InfoText Value="{Circuit.Location.locality}"  />
-	            </StackPanel>
-							<StackPanel Orientation="Horizontal">
-	              <InfoText Value="{Circuit.circuitName}"  />
-								<InfoText Value=" / " />
-								<InfoText Value="{date}"  />
-								<InfoText Value=" - " />
-								<InfoText Value="{time}"  />
-	            </StackPanel>
-	          </StackPanel>
 
-					</Panel>
-					<DropShadow Color="{Colors.shadowBlack}" Angle="130" />
-					<Stroke Brush="#ffffff" Width="3"  />
-					</Rectangle>
+				<Panel>
+					<Image Alignment="Right" ux:Name="arrowIcon" Height="10" File="Assets/icons/arrow.png" >
+						<WhilePressed>
+							<Scale Factor="0.8" Duration=".2" />
+						</WhilePressed>
+					</Image>
+
+					<StackPanel  Orientation="Vertical" >
+						<InfoText Font="MediumFont" FontSize="22" Value="{raceName}"  />
+						<StackPanel Orientation="Horizontal">
+							<InfoText Value="{Circuit.Location.country}"  />
+							<InfoText Value=" / " />
+							<InfoText Value="{Circuit.Location.locality}"  />
+						</StackPanel>
+						<StackPanel Orientation="Horizontal">
+							<InfoText Value="{Circuit.circuitName}"  />
+							<InfoText Value=" / " />
+							<InfoText Value="{date}"  />
+							<InfoText Value=" - " />
+							<InfoText Value="{time}"  />
+						</StackPanel>
+						<Rectangle Height="1" Fill="{Colors.accent}" />
+					</StackPanel>
+				</Panel>
+
 				</Each>
 			</StackPanel>
 		</ScrollView>
