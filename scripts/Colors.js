@@ -1,9 +1,10 @@
-var primary = "#252839";
+var primary = "#212121";
 var lightPrimary = "#677077";
 var primaryText = "#FFFFFF";
-var secondaryText = "#B5B5B7";
-var accent = "#F2B632"
+var secondaryText = "#727272";
+var accent = "#FFC107"
 
+var blackish = "#101010"
 var white = "#FFFFFF";
 var green = "#A2FF24";
 var pink = "#B73070";
@@ -20,5 +21,6 @@ module.exports = {
   pink: pink,
   white: white,
   lightGray: lightGray,
-  shadowBlack: shadowBlack
+  shadowBlack: shadowBlack,
+  blackish: blackish
 };

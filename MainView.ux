@@ -3,18 +3,82 @@
   <JavaScript File="scripts/Main.js" />
   <Font File="Assets/fonts/BebasNeue.otf" ux:Global="BigFont" />
   <Font File="Assets/fonts/NimbusSanL-Bol.otf" ux:Global="MediumFont" />
-    <DockPanel>
-      <StatusBarBackground Dock="Top"/>
-        <PageControl ux:Name="pages">
-            <Page ux:Name="page1">
-              <NewsView  />
-            </Page>
-            <Page ux:Name="page2">
-              <ScheduleView />
-            </Page>
-            <Page ux:Name="page3">
-              <StandingsView />
-            </Page>
-        </PageControl>
-    </DockPanel>
+  <Font File="Assets\fonts\MaterialIcons-Regular.ttf" ux:Global="IconFont"/>
+  <string ux:Value="&#xE80B;" ux:Key="NewsIcon" />
+  <string ux:Value="&#xE916;" ux:Key="ScheduleIcon" />
+  <string ux:Value="&#xE242;" ux:Key="StandingsIcon" />
+  <DockPanel>
+    <StatusBarBackground Dock="Top"/>
+
+    <PageControl ux:Name="pages">
+        <Page ux:Name="newsPage">
+          <WhileActive Threshold="0.5">
+            <Change Target="newsIcon.TextColor" Value="{Colors.accent}" Duration=".2" />
+            <Scale Target="newsIcon" Factor="1.1" Duration=".2" />
+          </WhileActive>
+        <NewsView  />
+      </Page>
+        <Page ux:Name="schedulePage">
+          <WhileActive Threshold="0.5">
+            <Change Target="scheduleIcon.TextColor" Value="{Colors.accent}" Duration=".2" />
+            <Scale Target="scheduleIcon" Factor="1.1" Duration=".2" />
+          </WhileActive>
+        <ScheduleView />
+      </Page>
+      <Page ux:Name="standingsPage">
+        <WhileActive Threshold="0.5">
+          <Change Target="standingsIcon.TextColor" Value="{Colors.accent}" Duration=".2" />
+          <Scale Target="standingsIcon" Factor="1.1" Duration=".2" />
+        </WhileActive>
+        <StandingsView />
+      </Page>
+    </PageControl>
+
+    <BottomBarBackground Dock="Bottom" />
+    <Grid Dock="Bottom" ColumnData="1*,1*,1*" Height="50">
+    <Rectangle Layer="Background">
+      <LinearGradient>
+         <GradientStop Offset="0" Color="{Colors.primary}"/>
+         <GradientStop Offset="1" Color="#101010"/>
+      </LinearGradient>
+    </Rectangle>
+      <Panel Alignment="Center">
+        <Circle Padding="5">
+          <MenuIcon ux:Name="newsIcon" Value="{Resource NewsIcon}" />
+          <LinearGradient>
+             <GradientStop Offset="0" Color="#101010"/>
+             <GradientStop Offset="1" Color="{Colors.primary}"/>
+          </LinearGradient>
+        </Circle>
+        <Clicked >
+          <Set pages.Active="newsPage" />
+        </Clicked>
+      </Panel>
+      <Panel Alignment="Center">
+      <Circle Padding="5">
+        <MenuIcon ux:Name="scheduleIcon" Value="{Resource ScheduleIcon}" />
+        <LinearGradient>
+           <GradientStop Offset="0" Color="#101010"/>
+           <GradientStop Offset="1" Color="{Colors.primary}"/>
+        </LinearGradient>
+      </Circle>
+        <Clicked >
+          <Set pages.Active="schedulePage" />
+        </Clicked>
+      </Panel>
+      <Panel Alignment="Center">
+      <Circle Padding="5">
+        <MenuIcon ux:Name="standingsIcon" Value="{Resource StandingsIcon}" />
+        <LinearGradient>
+           <GradientStop Offset="0" Color="#101010"/>
+           <GradientStop Offset="1" Color="{Colors.primary}"/>
+        </LinearGradient>
+      </Circle>
+        <Clicked >
+          <Set pages.Active="standingsPage" />
+        </Clicked>
+      </Panel>
+    </Grid>
+
+  </DockPanel>
 </App>
