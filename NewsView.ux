@@ -5,7 +5,7 @@
   </Text>
   <Image ux:Class="ArticleImage" StretchMode="UniformToFill"/>
   <Text ux:Class="Article" TextColor="{Colors.primaryText}" Margin="5,5,10,0" TextWrapping="Wrap" FontSize="13" />
-  <Text ux:Class="PublishedDate" Margin="5,5,10,5" FontSize="10" TextColor="{Colors.secondaryText}" />
+  <Text ux:Class="PublishedDate" Margin="5,5,10,5" FontSize="10" TextColor="{Colors.primaryText}" />
   <JavaScript File="scripts/News.js" />
 
 
