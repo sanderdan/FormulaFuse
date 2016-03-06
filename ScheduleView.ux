@@ -14,7 +14,6 @@
 
 		<Image Y="0" Margin="-10" ux:Name="backgroundImage" Layer="Background" Height="1000"
 		StretchMode="UniformToFill" File="Assets/images/ferrari-957630.jpg">
-			<Blur ux:Name="blurren" Radius="0" />
 			<Rectangle Opacity="0.4">
 				<LinearGradient StartPoint="1,0" EndPoint="1,1">
 					<GradientStop Offset="0" Color="{Colors.accent}" />
@@ -26,7 +25,6 @@
 		<ScrollView ClipToBounds="true">
 			<ScrollingAnimation From="0" To="3000" >
 				<Change backgroundImage.Y="-100" />
-				<Change blurren.Radius="4" />
 			</ScrollingAnimation>
 			<StackPanel ItemSpacing="10" >
 				<Each Items="{races.MRData.RaceTable.Races}">
