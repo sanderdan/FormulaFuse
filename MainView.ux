@@ -3,7 +3,7 @@
   <JavaScript File="scripts/Main.js" />
   <Font File="Assets/fonts/BebasNeue.otf" ux:Global="BigFont" />
   <Font File="Assets/fonts/NimbusSanL-Bol.otf" ux:Global="MediumFont" />
-  <Font File="Assets\fonts\MaterialIcons-Regular.ttf" ux:Global="IconFont"/>
+  <Font File="Assets/fonts/MaterialIcons-Regular.ttf" ux:Global="IconFont"/>
   <string ux:Value="&#xE80B;" ux:Key="NewsIcon" />
   <string ux:Value="&#xE916;" ux:Key="ScheduleIcon" />
   <string ux:Value="&#xE242;" ux:Key="StandingsIcon" />

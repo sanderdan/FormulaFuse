@@ -27,5 +27,8 @@
   ],
   "Includes": [
     "*"
-  ]
+  ],
+  "Mobile": {
+    "Orientations": "Portrait"
+  }
 }
