@@ -20,8 +20,8 @@
 
 		<ScrollView ClipToBounds="true">
     <StackPanel ItemSpacing="10"  Background="{Colors.gray}" Margin="10,5,10,5" Orientation="Vertical" >
-				<Each Items="{drivers.DriverStandings}">
-          <StackPanel ItemSpacing="5" Orientation="Horizontal">
+				<Each Items="{drivers}">
+          <StackPanel Orientation="Horizontal">
             <Rectangle>
               <BoardText TextAlignment="Center" FontSize="22" Value="{position}"  />
               <DropShadow Angle="90" />
@@ -30,8 +30,10 @@
 								 <GradientStop Offset="1" Color="#101010"/>
 							</LinearGradient>
             </Rectangle>
+						<Rectangle Fill="{constructorColor}" Width="20">
+						</Rectangle>
             <Rectangle>
-              <BoardText TextAlignment="Center" FontSize="22" Value="{Driver.familyName}"  />
+              <BoardText TextAlignment="Center" FontSize="22" Value="{familyName}"  />
               <DropShadow Angle="90" />
 							<LinearGradient>
 								 <GradientStop Offset="0" Color="#323232"/>

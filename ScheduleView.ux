@@ -28,7 +28,7 @@
 			</ScrollingAnimation>
 			<StackPanel ItemSpacing="10" >
 				<Each Items="{races.MRData.RaceTable.Races}">
-
+					<Rectangle Margin="22,0,22,0">
 				<Panel>
 					<Image Alignment="Right" ux:Name="arrowIcon" Height="10" File="Assets/icons/arrow.png" >
 						<WhilePressed>
@@ -53,6 +53,11 @@
 						<Rectangle Height="1" Fill="{Colors.accent}" />
 					</StackPanel>
 				</Panel>
+				<LinearGradient>
+					 <GradientStop Offset="0" Color="#323232"/>
+					 <GradientStop Offset="1" Color="#101010"/>
+				</LinearGradient>
+			</Rectangle>
 
 				</Each>
 			</StackPanel>
