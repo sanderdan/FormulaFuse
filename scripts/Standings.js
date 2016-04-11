@@ -17,11 +17,19 @@ var CONSTRUCTORCOLOR = {
 
 
 
-function Driver(givenName, familyName, position, points, constructorId){
+function Driver(givenName, familyName, position, points, constructorId, constructorName){
   this.givenName = givenName;
   this.familyName = familyName;
+  this.fullName = givenName + " " + familyName;
+  if (position % 2 == 0) {
+    this.gridSide = 'Right';
+    this.textSide = 'Left';
+  } else {
+    this.gridSide = 'Left';
+    this.textSide = 'Right';
+  }
   this.position = position;
-  this.points = points;
+  this.points = points + "p";
   this.constructorId = constructorId;
   console.log(constructorId);
   switch (constructorId) {
@@ -62,6 +70,7 @@ function Driver(givenName, familyName, position, points, constructorId){
     this.constructorColor = "#000000"
   }
 
+  this.constructorName = constructorName;
 }
 
 fetch("http://ergast.com/api/f1/current/driverStandings.json")
@@ -76,13 +85,13 @@ fetch("http://ergast.com/api/f1/current/driverStandings.json")
   var array = responseObject.MRData.StandingsTable.StandingsLists[0].DriverStandings;
   for (var i = 0; i < array.length; i++) {
     driver = array[i];
-    console.log(driver.Constructors[0].constructorId);
     drivers.add(new Driver(
       driver.Driver.givenName,
       driver.Driver.familyName,
       driver.position,
       driver.points,
-      driver.Constructors[0].constructorId
+      driver.Constructors[0].constructorId,
+      driver.Constructors[0].name
     ))
   }
   console.log("standings loaded");
