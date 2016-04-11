@@ -9,7 +9,8 @@ var white = "#FFFFFF";
 var green = "#A2FF24";
 var pink = "#B73070";
 var lightGray = "#e5e5e5";
-var shadowBlack = "#000000"
+var shadowBlack = "#000000";
+var asphalt = "#53565A";
 
 
 
@@ -24,6 +25,7 @@ module.exports = {
   white: white,
   lightGray: lightGray,
   shadowBlack: shadowBlack,
-  blackish: blackish
+  blackish: blackish,
+  asphalt: asphalt
 
 };
