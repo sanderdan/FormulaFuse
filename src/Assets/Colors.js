@@ -6,6 +6,6 @@ const colors = {
  blue: '#5BC0EB'
 }
 
-export var world = {
+export var colors = {
 	'colors': colors
 }
