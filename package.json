@@ -1,0 +1,17 @@
+{
+  "main": "gulpfile.js",
+  "dependencies": {
+    "babel-eslint": "latest",
+    "babel-plugin-transform-es2015-modules-commonjs": "latest",
+    "babel-preset-es2015": "latest",
+    "babelify": "latest",
+    "gulp": "latest",
+    "gulp-babel": "latest",
+    "gulp-concat": "latest",
+    "gulp-eslint": "latest",
+    "gulp-ignore": "latest",
+    "gulp-inject-string": "latest",
+    "gulp-watch": "latest",
+    "moment": "^2.15.0"
+  }
+}
